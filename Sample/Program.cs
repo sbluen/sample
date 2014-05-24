@@ -176,6 +176,8 @@ public class Test
 			Console.WriteLine("\t{0}, {1}, {2}", 
 				p.Name, p.ParameterType, p.Attributes);
 		}
+        
+        hello.printHello();
 	}
 }
 
