@@ -7,21 +7,21 @@ public class Test
 {
 	// Declare a delegate type that can be used to execute the completed 
 	// dynamic method.  
-	private delegate int HelloDelegate(string msg, int ret);
+	private delegate int HelloDelegate(string msg, int ret, int third);
 
 	public static void Main()
 	{
 		// Create an array that specifies the types of the parameters 
 		// of the dynamic method. This dynamic method has a String 
 		// parameter and an Integer parameter.
-		Type[] helloArgs = {typeof(string), typeof(int)};
+		Type[] helloArgs = {typeof(string), typeof(int), typeof(int)};
 
 		// Create a dynamic method with the name "Hello", a return type
 		// of Integer, and two parameters whose types are specified by 
 		// the array helloArgs. Create the method in the module that 
 		// defines the String class.
 		DynamicMethod hello = new DynamicMethod("Hello", 
-			typeof(int), 
+			typeof(int),
 			helloArgs, 
 			typeof(string).Module);
 
@@ -61,16 +61,16 @@ public class Test
 
 		// Use the delegate to execute the dynamic method.
 		Console.WriteLine("\r\nUse the delegate to execute the dynamic method:");
-		int retval = hi("\r\nHello, World!", 42);
-		Console.WriteLine("Invoking delegate hi(\"Hello, World!\", 42) returned: " + retval);
+		int retval = hi("\r\nHello, World!", 42, 30);
+		Console.WriteLine("Invoking delegate hi(\"Hello, World!\", 42, 30) returned: " + retval);
 
 		// Execute it again, with different arguments.
-		retval = hi("\r\nHi, Mom!", 5280);
-		Console.WriteLine("Invoking delegate hi(\"Hi, Mom!\", 5280) returned: " + retval);
+		retval = hi("\r\nHi, Mom!", 5280, 37);
+		Console.WriteLine("Invoking delegate hi(\"Hi, Mom!\", 5280, 37) returned: " + retval);
 
 		Console.WriteLine("\r\nUse the Invoke method to execute the dynamic method:");
 		// Create an array of arguments to use with the Invoke method. 
-		object[] invokeArgs = {"\r\nHello, World!", 42};
+		object[] invokeArgs = {"\r\nHello, World!", 42, 30};
 		// Invoke the dynamic method using the arguments. This is much 
 		// slower than using the delegate, because you must create an 
 		// array to contain the arguments, and value-type arguments 
