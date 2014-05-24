@@ -44,6 +44,8 @@ public class Test
 		// The Hello method returns the value of the second argument; 
 		// to do this, load the onto the stack and return.
 		il.Emit(OpCodes.Ldarg_1);
+		il.Emit(OpCodes.Ldc_I4, 1337);
+		il.Emit(OpCodes.Add);
 		il.Emit(OpCodes.Ret);
 
 		// Add parameter information to the dynamic method. (This is not 
@@ -177,7 +179,6 @@ public class Test
 				p.Name, p.ParameterType, p.Attributes);
 		}
         
-        hello.printHello();
 	}
 }
 
