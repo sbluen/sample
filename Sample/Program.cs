@@ -44,7 +44,7 @@ public class Test
 		// The Hello method returns the value of the second argument; 
 		// to do this, load the onto the stack and return.
 		il.Emit(OpCodes.Ldarg_1);
-		il.Emit(OpCodes.Ldc_I4, 1337);
+		il.Emit(OpCodes.Ldc_I4_X, 1337);
 		il.Emit(OpCodes.Add);
 		il.Emit(OpCodes.Ret);
 
@@ -168,6 +168,7 @@ public class Test
 //			}
 //		}
 
+		Console.WriteLine("\r\nToString: {0}", hello.ToString());
 		Console.WriteLine("\r\nToString: {0}", hello.ToString());
 
 		// Display parameter information.
