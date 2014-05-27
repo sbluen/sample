@@ -179,7 +179,9 @@ public class Test
 			Console.WriteLine("\t{0}, {1}, {2}", 
 				p.Name, p.ParameterType, p.Attributes);
 		}
-        
+        Console.WriteLine("array assignment");
+	Type[] paramTypes = { typeof(uint), typeof(string), typeof(string), typeof(uint) };
+	Console.WriteLine(paramTypes[1]);
 	}
 }
 
